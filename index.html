@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        transition: left 0.5s ease-in-out;
+      }
+      body {
+        width: 100%;
+        height: 200vh;
+        background-color: white;
+        display: flex;
+        overflow-x: hidden;
+      }
+      .section1 {
+        width: 100%;
+        height: 100vh;
+        background-color: red;
+        position: absolute;
+      }
+      .pindah {
+        left: -1500px;
+      }
+      .section1:nth-child(1){
+        background-image: url("image/sasha-samusevych-bw_M_0U2Tw4-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .section1:nth-child(2) {
+        background-image: url("image/samsung-uk-SUb-vG_sspk-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        left: -1500px;
+      }
+      .section1:nth-child(3) {
+        background-image: url("6667473_3376542.jpg");
+        background-size: cover;
+        background-position: center;
+        left: -10000px;
+      }
+      .div {
+        position: absolute;
+        z-index: 99999;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section1" id="tiga"></section>
+    <section class="section1" id="dua"></section>></section>
+    <section class="section1" id="satu"></section>></section>
+    <div class="div">
+      <button onclick="tekan()">klik</button>
+    </div>
+  </body>
+  <script>
+    const section1 = document.getElementById("satu");
+    const section2 = document.getElementById("dua");
+    const section3 = document.getElementById("tiga");
+    let count = 0
+    function tekan() {
+        switch (count){
+            case 0:
+                setTimeout(() => {
+                  section3.classList.add("pindah");
+                }, 2000);
+                section2.style.left = `${0}px`;
+                count +=1
+                break;
+            case 1:
+                setTimeout(() => {
+                  section2.classList.add("pindah");
+                }, 2000);
+                section1.style.left = `${0}px`;
+                count +=1
+                break;
+            case 2 :
+                setTimeout(() => {
+                  section1.classList.add("pindah");
+                }, 2000);
+                section1.style.left = `${-1500}px`
+                section2.style.left = `${-1500}px`
+                setTimeout(()=> {
+
+                    section3.classList.remove("pindah");
+                },100)
+                
+                count -=2
+                console.log("hallo")
+                break;
+
+
+        }
+    }
+  </script>
+</html>
